@@ -1,0 +1,29 @@
+/*
+ * Front-end.
+ */
+
+.imgzoom_view, .imgzoom_view body {
+    margin: 0;
+}
+.imgzoom_view img {
+    display: block;
+    margin: 0 auto;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+.imgzoom_view img.imgzoom_out {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+}
+
+/*
+ * Back-end.
+ */
+
+.imgzoom_icon {
+    float: left;
+    margin: -0.5em 1em 0 0;
+}
+.imgzoom_license {
+    text-align: justify;
+}
