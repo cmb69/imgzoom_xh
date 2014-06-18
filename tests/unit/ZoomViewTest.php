@@ -44,6 +44,13 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
     private $_exit;
 
     /**
+     * The header mock function.
+     *
+     * @var object
+     */
+    private $_header;
+
+    /**
      * Sets up the test fixture.
      *
      * @return void
@@ -63,6 +70,21 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
         $this->_exit = new PHPUnit_Extensions_MockFunction(
             'XH_exit', $this->_subject
         );
+        $this->_header = new PHPUnit_Extensions_MockFunction(
+            'header', $this->_subject
+        );
+    }
+
+    /**
+     * Tests that the appropriate Content-Type header is sent.
+     *
+     * @return void
+     */
+    public function testSendsContentTypeHeader()
+    {
+        $this->_header->expects($this->once())
+            ->with('Content-Type:text/html; charset=UTF-8');
+        $this->_dispatchResult();
     }
 
     /**

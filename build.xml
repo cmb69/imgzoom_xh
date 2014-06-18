@@ -81,7 +81,7 @@
     </target>
 
 <!--    <target name="js-doc">
-        <exec command="jsdoc --destination doc/js imgzoom.js" checkreturn="true"/>
+        <exec command="jsdoc -destination doc/js imgzoom.js" checkreturn="true"/>
     </target>
 -->
     <target name="doc" depends="php-doc"/>

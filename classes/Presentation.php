@@ -79,6 +79,7 @@ class Imgzoom_Controller
         $src = $this->_imageFolder . $image;
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
         $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.js';
+        header('Content-Type:text/html; charset=UTF-8');
         return <<<EOT
 <!DOCTYPE html>
 <html class="imgzoom_view">
