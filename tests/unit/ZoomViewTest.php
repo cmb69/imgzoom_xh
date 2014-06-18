@@ -195,6 +195,37 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
     }
 
     /**
+     * Tests that the user input is sanitized.
+     *
+     * @return void
+     */
+    public function testSanitizesInput()
+    {
+        $_GET['imgzoom_image'] = '../foo';
+        $pth['folder'] = array(
+            'images' => 'bar/',
+            'plugins' => ''
+        );
+        $this->_subject = new Imgzoom_Controller();
+        $this->_exit = new PHPUnit_Extensions_MockFunction(
+            'XH_exit', $this->_subject
+        );
+        $this->_header = new PHPUnit_Extensions_MockFunction(
+            'header', $this->_subject
+        );
+        $this->assertTag(
+            array(
+                'tag' => 'img',
+                'attributes' => array(
+                    'src' => 'bar/foo',
+                    'alt' => 'foo'
+                )
+            ),
+            $this->_dispatchResult()
+        );
+    }
+
+    /**
      * Calls dispatch and returns its output.
      *
      * @return string (X)HTML

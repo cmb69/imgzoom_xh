@@ -56,7 +56,9 @@ class Imgzoom_Controller
         global $imgzoom;
 
         if (isset($_GET['imgzoom_image'])) {
-            echo $this->_render(stsl($_GET['imgzoom_image']));
+            $image = stsl($_GET['imgzoom_image']);
+            $image = preg_replace('/\.\.\//', '', $image);
+            echo $this->_render($image);
             XH_exit();
         } elseif (XH_ADM && isset($imgzoom) && $imgzoom == 'true') {
             $this->_handleAdministration();
