@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Imgzoom_XH - Manual</title>
+<link rel="stylesheet" type="text/css" href="./stylesheet.css">
+</head>
+
+<body>
+
+<h1>Imgzoom_XH – a CMSimple_XH Plugin</h1>
+<img src="../imgzoom.png" style="float:left; margin:-0.5em 1em 0 0" alt="Viewing
+image with a magnifier">
+<p>Imgzoom_XH facilitates presenting very large images (for instance, newspaper
+scans) in simple image viewers, so that a visitor can view them in full
+detail.</p>
+
+<ul id="nav">
+<li><a href="#notice">Important Notice</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#settings">Settings</a></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<a href="#usage-viewer">The viewer</h3>
+</ul>
+</li>
+<!--<li><a href="#limitations">Limitations</a></li>-->
+<li><a href="#license">License</a></li>
+<li><a href="#credits">Credits</a></li>
+</ul>
+
+<div id="body">
+
+<p><strong>Please do read this documentation <em>before</em> you encounter any
+problems!</strong></p>
+
+<h2 id="notice">Important Notice</h2>
+<p><strong>Imgzoom_XH couldn't be tested so far in various environments. It is a
+so called beta version. Use with caution!</strong></p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="requirements">Requirements</h2>
+<p>Imgzoom_XH is a plugin for CMSimple_XH. It requires a UTF-8 encoded
+CMSimple_XH and PHP &ge; 5.0.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="installation">Installation</h2>
+<p>The installation is done as with many other CMSimple_XH plugins.
+See the <a href="http://www.cmsimple-xh.org/wiki/doku.php/installation">
+CMSimple_XH wiki</a> for further details.</p>
+<ol>
+<li>Backup the data on your server.</li>
+<li>Unzip the distribution on your computer.</li>
+<li>Upload the whole directory imgzoom/ to your server into CMSimple_XH's plugins/
+directory.</li>
+<li>Set write permissions for the subdirectories css/<!--, config/--> and
+languages/.</li>
+<!--<li>Browse to Chess' administration (Plugins &rarr; Chess), and check if all
+requirements are fulfilled.</li>
+--></ol>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="settings">Settings</h2>
+<p>The plugin's configuration is done as with many other CMSimple_XH plugins in
+the website's back-end. Select "Imgzoom" from "Plugins".</p>
+<!--<p>You can change the default settings of Pagemanager_XH in "Config". Hints for
+the options will be displayed when hovering over the help icon with your
+mouse.</p>-->
+<p>Localization is done under "Language". You can translate the character
+strings to your own language, or customize them according to your needs.</p>
+<p>The look of Imgzoom_XH can be customized under "Stylesheet".</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="usage">Usage</h2>
+<p>Images that shall be displayed in an Imgzoom_XH viewer have to be placed in
+CMSimple_XH's image folder (usually userfiles/images/ or images/) or in a
+subfolder thereof.</p>
+<p>You can either link to the image viewer from the content or the template, or
+you can embed it in an IFrame. However, in either case you don't use the URL of
+the image directly, but instead request the image viewer:</p>
+<pre>?imgzoom_image=%IMAGE_FILENAME%</pre>
+<p>An example: say you have the file userfiles/images/scan.jpg. To create a
+link, write the following in HTML mode (resp. produce this HTML with the WYSIWYG
+editor):</p>
+<pre>&lt;a href="?imgzoom_image=scan.jpg" target="_blank"&gt;</pre>
+<p>To embed an image viewer in a page write the following in HTML mode:</p>
+<pre>&lt;iframe src="?imgzoom_image=scan.jpg" frameborder="0"
+        width="500" height="500"&gt;&lt;/iframe&gt;</pre>
+<p>(Adjust the width and height according to your needs.)</p>
+<p>If the image to display is in a subfolder of the image folder, you have to
+add the subfolder in the URL, for instance:</p>
+<pre>?imgzoom_image=scans/imgage.jpg</pre>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h3 id="usage-viewer">The viewer</h3>
+<p>On contemporary desktop browsers with JavaScript support the image will be
+resized to be shown completely when the image viewer is displayed. To zoom in,
+you have to click on the desired place; to zoom-out simply press the SHIFT key
+while clicking.</p>
+<p>On older browsers and on browsers without JavaScript support the image will
+be displayed in its full size. You have to scroll to the desired section of the
+image. Zooming can be done with the browser's controls for stand-alone
+viewers.</p>
+<p>On mobile browsers you can use the customary pan, pinch-to-zoom and double
+tap gestures. Zooming will not generally work for embedded viewers, besides
+zoom-in with a long press.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<!--<h2 id="limitations">Limitations</h2>
+<div class="toplink"><a href="#">back to top</a></div>-->
+
+<h2 id="license">License</h2>
+<p>Imgzoom_XH is licensed under
+<a href="http://www.gnu.org/licenses/gpl.html">GPLv3</a>.</p>
+<p>&copy; 2014 Christoph M. Becker</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+<h2 id="credits">Credits</h2>
+<p>This plugin has been inspired by Korvell.</p>
+<p>The plugin icon is designed by <a href="http://www.mentalrey.it/">Alessandro
+Rei</a>. Many thanks for publishing this icon under GPL.</p>
+<!--<p>This plugin uses free applications icons from <a
+href="http://www.aha-soft.com/">Aha-Soft</a>. Many thanks to making these icons
+freely available.</p>-->
+<!--<p>Many thanks to the community at the <a
+href="http://www.cmsimpleforum.com/">CMSimple_XH forum</a> for tips, suggestions and
+testing</p>-->
+<p>And last but not least many thanks to <a href="http://harteg.dk/">Peter
+Harteg</a>, the "father" of CMSimple, and all developers of <a
+href="http://www.cmsimple-xh.org/"> CMSimple_XH</a> without whom this amazing
+CMS wouldn't exist.</p>
+<div class="toplink"><a href="#">back to top</a></div>
+
+</div>
+
+</body>
+
+</html>
