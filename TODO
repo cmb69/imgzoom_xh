@@ -1,2 +1,2 @@
 * write manual
-* add German localization
+* sanitize input (no ../ !)
