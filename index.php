@@ -14,6 +14,9 @@
  * @link      http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
 
+/*
+ * Prevent direct access and usage from unsupported CMSimple_XH versions.
+ */
 if (!defined('CMSIMPLE_XH_VERSION')
     || strpos(CMSIMPLE_XH_VERSION, 'CMSimple_XH') !== 0
     || version_compare(CMSIMPLE_XH_VERSION, 'CMSimple_XH 1.5.4', 'lt')
