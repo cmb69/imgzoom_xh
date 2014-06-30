@@ -14,12 +14,17 @@
  * @link      http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
 
-/*
- * Prevent direct access.
- */
-if (!defined('CMSIMPLE_XH_VERSION')) {
-    header('HTTP/1.0 403 Forbidden');
-    exit;
+if (!defined('CMSIMPLE_XH_VERSION')
+    || strpos(CMSIMPLE_XH_VERSION, 'CMSimple_XH') !== 0
+    || version_compare(CMSIMPLE_XH_VERSION, 'CMSimple_XH 1.5.4', 'lt')
+) {
+    header('HTTP/1.1 403 Forbidden');
+    header('Content-Type: text/plain; charset=UTF-8');
+    die(<<<EOT
+Imgzoom_XH detected an unsupported CMSimple_XH version.
+Deinstall Imgzoom_XH or upgrade to a supported CMSimple_XH version!
+EOT
+    );
 }
 
 /**
