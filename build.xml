@@ -115,7 +115,6 @@
                 <exclude name="coverage.xml"/>
                 <exclude name="imgzoom.js"/>
                 <exclude name="phpcompatinfo.xml"/>
-                <exclude name="TODO"/>
             </fileset>
         </move>
         <delete dir="export"/>
