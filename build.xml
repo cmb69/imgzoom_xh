@@ -114,7 +114,6 @@
                 <exclude name="composer.*"/>
                 <exclude name="coverage.xml"/>
                 <exclude name="imgzoom.js"/>
-                <exclude name="imgzoom.komodoproject"/>
                 <exclude name="phpcompatinfo.xml"/>
                 <exclude name="TODO"/>
             </fileset>
