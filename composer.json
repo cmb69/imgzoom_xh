@@ -1,5 +1,6 @@
 {
     "require-dev": {
+        "phing/phing": "2.13.*",
         "tcz/phpunit-mockfunction": "1.0.0",
         "mikey179/vfsStream": "1.2.0"
     }
