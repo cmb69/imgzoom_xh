@@ -25,9 +25,7 @@
     </target>
 
     <target name="compat" description="checks compatibility with PHP_CompatInfo">
-        <exec command="phpcompatinfo --configuration phpcompatinfo.xml print
-                                     --exclude-pattern imgzoom ."
-              logoutput="true"/>
+        <exec command="phpcompatinfo analyser:run --alias current" logoutput="true"/>
     </target>
 
     <target name="unit-tests" description="runs all unit tests">
@@ -83,7 +81,7 @@
                 <exclude name="composer.*"/>
                 <exclude name="coverage.xml"/>
                 <exclude name="imgzoom.js"/>
-                <exclude name="phpcompatinfo.xml"/>
+                <exclude name="phpcompatinfo.json"/>
             </fileset>
         </move>
         <delete dir="export"/>
