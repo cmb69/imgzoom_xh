@@ -93,7 +93,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testHtmlHasClass()
     {
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'html',
                 'attributes' => array('class' => 'imgzoom_view')
@@ -109,7 +109,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testHasHead()
     {
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'head',
                 'child' => array(
@@ -129,7 +129,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testHeadLinksStylesheets()
     {
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'link',
                 'attributes' => array(
@@ -150,7 +150,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testBodyLoadsScript()
     {
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'script',
                 'attributes' => array(
@@ -170,7 +170,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testHasImage()
     {
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'img',
                 'attributes' => array(
@@ -212,7 +212,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
         $this->_header = new PHPUnit_Extensions_MockFunction(
             'header', $this->_subject
         );
-        $this->assertTag(
+        @$this->assertTag(
             array(
                 'tag' => 'img',
                 'attributes' => array(
