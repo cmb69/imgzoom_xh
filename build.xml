@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Imgzoom" default="default">
+<project name="Imgzoom" default="help">
 
     <fileset id="php-sources" dir=".">
         <include name="classes/*.php"/>
@@ -10,6 +10,11 @@
     <fileset id="unit-tests" dir="tests/unit">
         <include name="*Test.php"/>
     </fileset>
+
+    <target name="help" description="lists available targets">
+        <exec command="phing -l" outputProperty="help"/>
+        <echo>${help}</echo>
+    </target>
 
     <target name="sniff">
         <phpcodesniffer standard="PEAR" format="full">
