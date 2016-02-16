@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- $Id$ -->
-
 <project name="Imgzoom" default="default">
-
-    <!-- Properties -->
-
-    <property name="styledir" value="C:\xampp\php\data\phing\etc"/>
-
-    <!-- Filesets -->
 
     <fileset id="php-sources" dir=".">
         <include name="classes/*.php"/>
@@ -18,12 +10,6 @@
     <fileset id="unit-tests" dir="tests/unit">
         <include name="*Test.php"/>
     </fileset>
-
-<!--    <fileset id="attack-tests" dir="tests/attack">
-        <include name="*Test.php"/>
-    </fileset>
--->
-    <!-- Checks -->
 
     <target name="sniff">
         <phpcodesniffer standard="PEAR" format="full">
@@ -39,8 +25,6 @@
               logoutput="true"/>
     </target>
 
-    <!-- Tests -->
-
     <target name="unit-tests">
         <phpunit haltonerror="true" haltonfailure="true">
             <formatter type="plain" usefile="false"/>
@@ -50,23 +34,9 @@
         </phpunit>
     </target>
 
-<!--    <target name="attack-tests">
-        <fail unless="env.CMSIMPLEDIR" message="CMSIMPLEDIR undefined!"/>
-        <phpunit haltonerror="true" haltonfailure="true">
-            <formatter type="plain" usefile="false"/>
-            <batchtest>
-                <fileset refid="attack-tests"/>
-            </batchtest>
-        </phpunit>
-    </target>
--->
-    <!-- Code coverage -->
-
     <target name="coverage">
         <exec command="phpunit --configuration coverage.xml" logoutput="true"/>
     </target>
-
-    <!-- Documentation -->
 
     <target name="php-doc">
         <phpdoc title="Imgzoom_XH Developer Documentation" destdir="doc/php"
@@ -80,13 +50,7 @@
         </phpdoc>
     </target>
 
-<!--    <target name="js-doc">
-        <exec command="jsdoc -destination doc/js imgzoom.js" checkreturn="true"/>
-    </target>
--->
     <target name="doc" depends="php-doc"/>
-
-    <!-- Build -->
 
     <target name="build">
         <fail unless="version" message="version is not defined!"/>
@@ -118,7 +82,6 @@
             </fileset>
         </move>
         <delete dir="export"/>
-        <!--<copy file="dist/config/config.php" tofile="dist/config/defaultconfig.php"/>-->
         <copy file="dist/languages/en.php" tofile="dist/languages/default.php"/>
         <zip destfile="Imgzoom_XH-${version}.zip" basedir="dist" prefix="imgzoom/"/>
         <delete dir="dist"/>
