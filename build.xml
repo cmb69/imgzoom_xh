@@ -16,7 +16,7 @@
         <echo>${help}</echo>
     </target>
 
-    <target name="sniff">
+    <target name="sniff" description="checks adherence to PEAR CS">
         <phpcodesniffer standard="PEAR" format="full">
             <fileset refid="php-sources"/>
             <fileset refid="unit-tests"/>
@@ -24,13 +24,13 @@
         </phpcodesniffer>
     </target>
 
-    <target name="compat">
+    <target name="compat" description="checks compatibility with PHP_CompatInfo">
         <exec command="phpcompatinfo --configuration phpcompatinfo.xml print
                                      --exclude-pattern imgzoom ."
               logoutput="true"/>
     </target>
 
-    <target name="unit-tests">
+    <target name="unit-tests" description="runs all unit tests">
         <phpunit haltonerror="true" haltonfailure="true">
             <formatter type="plain" usefile="false"/>
             <batchtest>
@@ -39,7 +39,7 @@
         </phpunit>
     </target>
 
-    <target name="coverage">
+    <target name="coverage" description="generates coverage report">
         <exec command="phpunit --configuration coverage.xml" logoutput="true"/>
     </target>
 
@@ -55,9 +55,9 @@
         </phpdoc>
     </target>
 
-    <target name="doc" depends="php-doc"/>
+    <target name="doc" depends="php-doc" description="generates developer documentation"/>
 
-    <target name="build">
+    <target name="build" description="builds distributable ZIP archive">
         <fail unless="version" message="version is not defined!"/>
         <svnexport revision="" repositoryurl="." todir="export"/>
         <move todir="dist">
