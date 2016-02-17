@@ -57,8 +57,8 @@ class Controller
         if (isset($_GET['imgzoom_image'])) {
             $this->renderViewer();
         } elseif (defined('XH_ADM') && XH_ADM) {
+            XH_registerStandardPluginMenuItems(false);
             if ($this->isAdministrationRequested()) {
-                XH_registerStandardPluginMenuItems(false);
                 $this->_handleAdministration();
             }
         }
