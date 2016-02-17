@@ -100,7 +100,6 @@
                 <exclude name="tests/**"/>
                 <exclude name="build.xml"/>
                 <exclude name="composer.*"/>
-                <exclude name="coverage.xml"/>
                 <exclude name="imgzoom.js"/>
                 <exclude name="pax_global_header"/>
                 <exclude name="phpcompatinfo.json"/>
