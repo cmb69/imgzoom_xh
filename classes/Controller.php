@@ -59,7 +59,9 @@ class Imgzoom_Controller
             $image = preg_replace('/\.\.\//', '', $image);
             echo $this->_render($image);
             XH_exit();
-        } elseif (XH_ADM && isset($imgzoom) && $imgzoom == 'true') {
+        } elseif (defined('XH_ADM') && XH_ADM
+            && isset($imgzoom) && $imgzoom == 'true'
+        ) {
             $this->_handleAdministration();
         }
     }
