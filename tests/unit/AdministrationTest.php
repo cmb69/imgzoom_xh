@@ -28,6 +28,18 @@ require_once '../../cmsimple/adminfuncs.php';
 class AdministrationTest extends PHPUnit_Framework_TestCase
 {
     /**
+     * Sets up the test fixture.
+     *
+     * @return void
+     */
+    public function setUp()
+    {
+        new PHPUnit_Extensions_MockFunction(
+            'XH_registerStandardPluginMenuItems', null
+        );
+    }
+
+    /**
      * Tests the stylesheet administration.
      *
      * @return void

@@ -54,11 +54,14 @@ class Imgzoom_Controller
     {
         if (isset($_GET['imgzoom_image'])) {
             $this->renderViewer();
-        } elseif ($this->isAdministrationRequested()) {
-            $this->_handleAdministration();
+        } elseif (defined('XH_ADM') && XH_ADM) {
+            if ($this->isAdministrationRequested()) {
+                XH_registerStandardPluginMenuItems(false);
+                $this->_handleAdministration();
+            }
         }
     }
-    
+
     /**
      * Renders an image viewer.
      *
@@ -71,7 +74,7 @@ class Imgzoom_Controller
         echo $this->_render($image);
         XH_exit();
     }
-    
+
     /**
      * Returns whether the plugin administration is requested.
      *
@@ -83,7 +86,9 @@ class Imgzoom_Controller
     {
         global $imgzoom;
 
-        return defined('XH_ADM') && XH_ADM && isset($imgzoom) && $imgzoom == 'true';
+        return function_exists('XH_wantsPluginAdministration')
+            && XH_wantsPluginAdministration('imgzoom')
+            || isset($imgzoom) && $imgzoom == 'true';
     }
 
     /**
