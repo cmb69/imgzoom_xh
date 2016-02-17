@@ -52,18 +52,38 @@ class Imgzoom_Controller
      */
     public function dispatch()
     {
-        global $imgzoom;
-
         if (isset($_GET['imgzoom_image'])) {
-            $image = stsl($_GET['imgzoom_image']);
-            $image = preg_replace('/\.\.\//', '', $image);
-            echo $this->_render($image);
-            XH_exit();
-        } elseif (defined('XH_ADM') && XH_ADM
-            && isset($imgzoom) && $imgzoom == 'true'
-        ) {
+            $this->renderViewer();
+        } elseif ($this->isAdministrationRequested()) {
             $this->_handleAdministration();
         }
+    }
+    
+    /**
+     * Renders an image viewer.
+     *
+     * @return void
+     */
+    protected function renderViewer()
+    {
+        $image = stsl($_GET['imgzoom_image']);
+        $image = preg_replace('/\.\.\//', '', $image);
+        echo $this->_render($image);
+        XH_exit();
+    }
+    
+    /**
+     * Returns whether the plugin administration is requested.
+     *
+     * @return bool
+     *
+     * @global Whether the plugin administration is requested.
+     */
+    protected function isAdministrationRequested()
+    {
+        global $imgzoom;
+
+        return defined('XH_ADM') && XH_ADM && isset($imgzoom) && $imgzoom == 'true';
     }
 
     /**

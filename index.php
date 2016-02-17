@@ -21,7 +21,7 @@ define('IMGZOOM_VERSION', '@IMGZOOM_VERSION@');
 /**
  * The plugin controller.
  */
-$_Imgzoom_controller = new Imgzoom_Controller();
-$_Imgzoom_controller->dispatch();
+$temp = new Imgzoom_Controller();
+$temp->dispatch();
 
 ?>
