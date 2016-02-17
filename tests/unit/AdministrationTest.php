@@ -56,7 +56,7 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
         $imgzoom = 'true';
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
-        $subject = new Imgzoom_Controller();
+        $subject = new Imgzoom\Controller();
         $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
             'print_plugin_admin', $subject
         );

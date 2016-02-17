@@ -13,6 +13,8 @@
  * @link      http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
 
+namespace Imgzoom;
+
 /**
  * The controllers.
  *
@@ -22,7 +24,7 @@
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
-class Imgzoom_Controller
+class Controller
 {
     /**
      * The image folder.

@@ -48,7 +48,7 @@ class InfoViewTest extends PHPUnit_Framework_TestCase
             'plugins' => './plugins/'
         );
         $plugin_tx['imgzoom']['alt_icon'] = 'Viewing image with a magnifier';
-        $subject = new Imgzoom_Controller();
+        $subject = new Imgzoom\Controller();
         $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
             'print_plugin_admin', $subject
         );

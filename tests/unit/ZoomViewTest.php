@@ -64,7 +64,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
             'images' => 'bar/',
             'plugins' => ''
         );
-        $this->_subject = new Imgzoom_Controller();
+        $this->_subject = new Imgzoom\Controller();
         $this->_exit = new PHPUnit_Extensions_MockFunction(
             'XH_exit', $this->_subject
         );
@@ -200,7 +200,7 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
     public function testSanitizesInput()
     {
         $_GET['imgzoom_image'] = '../foo';
-        $this->_subject = new Imgzoom_Controller();
+        $this->_subject = new Imgzoom\Controller();
         $this->_exit = new PHPUnit_Extensions_MockFunction(
             'XH_exit', $this->_subject
         );
