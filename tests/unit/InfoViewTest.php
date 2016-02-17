@@ -14,7 +14,6 @@
  */
 
 require_once '../../cmsimple/adminfuncs.php';
-require_once './classes/Presentation.php';
 
 /**
  * Testing the info view.
