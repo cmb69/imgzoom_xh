@@ -1,6 +1,15 @@
-if (window.addEventListener) {
-    window.addEventListener("load", function () {
-        "use strict";
+(function () {
+    "use strict";
+
+    var on = function (element, event, listener) {
+        if (element.addEventListener) {
+            element.addEventListener(event, listener);
+        } else if (element.attachEvent) {
+            element.attachEvent("on" + event, listener);
+        }
+    };
+    
+    on(window, "load", function () {
 
         var image, imageRatio, baseWidth, baseHeight, zoomFactor;
 
@@ -52,20 +61,20 @@ if (window.addEventListener) {
         zoomFactor = 0;
         image = document.images[0];
         imageRatio = image.offsetWidth / image.offsetHeight;
-        image.onclick = onClick;
+        on(image, "click", onClick);
         shrinkImage();
         fitImageToViewport();
-        window.addEventListener("keydown", function (event) {
+        on(window, "keydown", function (event) {
             if (event.shiftKey) {
                 image.className = "imgzoom_out";
             }
         });
-        window.addEventListener("keyup", function () {
+        on(window, "keyup", function () {
             image.className = "";
         });
-        window.addEventListener("resize", function () {
+        on(window, "resize", function () {
             shrinkImage();
             fitImageToViewport();
         });
     });
-}
+}());
