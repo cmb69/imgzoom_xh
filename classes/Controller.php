@@ -47,7 +47,7 @@ class Controller
             $this->renderViewer();
         } elseif (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
-            if ($this->isAdministrationRequested()) {
+            if (XH_wantsPluginAdministration('imgzoom')) {
                 $this->handleAdministration();
             }
         }
@@ -62,18 +62,6 @@ class Controller
         $image = preg_replace('/\.\.\//', '', $image);
         echo $this->render($image);
         XH_exit();
-    }
-
-    /**
-     * @return bool
-     */
-    protected function isAdministrationRequested()
-    {
-        global $imgzoom;
-
-        return function_exists('XH_wantsPluginAdministration')
-            && XH_wantsPluginAdministration('imgzoom')
-            || isset($imgzoom) && $imgzoom == 'true';
     }
 
     /**
