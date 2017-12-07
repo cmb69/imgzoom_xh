@@ -13,6 +13,11 @@
  * @link      http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
 
+namespace Imgzoom;
+
+use PHPUnit\Framework\TestCase;
+use PHPUnit_Extensions_MockFunction;
+
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/adminfuncs.php';
 
@@ -25,7 +30,7 @@ require_once '../../cmsimple/adminfuncs.php';
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
-class AdministrationTest extends PHPUnit_Framework_TestCase
+class AdministrationTest extends TestCase
 {
     /**
      * Sets up the test fixture.
@@ -34,9 +39,7 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        new PHPUnit_Extensions_MockFunction(
-            'XH_registerStandardPluginMenuItems', null
-        );
+        new PHPUnit_Extensions_MockFunction('XH_registerStandardPluginMenuItems', null);
     }
 
     /**
@@ -52,18 +55,14 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
     {
         global $imgzoom, $admin, $action;
 
-        $this->_defineConstant('XH_ADM', true);
+        $this->defineConstant('XH_ADM', true);
         $imgzoom = 'true';
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
-        $subject = new Imgzoom\Controller();
-        $printPluginAdmin = new PHPUnit_Extensions_MockFunction(
-            'print_plugin_admin', $subject
-        );
+        $subject = new Controller();
+        $printPluginAdmin = new PHPUnit_Extensions_MockFunction('print_plugin_admin', $subject);
         $printPluginAdmin->expects($this->once())->with('off');
-        $pluginAdminCommon = new PHPUnit_Extensions_MockFunction(
-            'plugin_admin_common', $subject
-        );
+        $pluginAdminCommon = new PHPUnit_Extensions_MockFunction('plugin_admin_common', $subject);
         $pluginAdminCommon->expects($this->once())
             ->with($action, $admin, 'imgzoom');
         $subject->dispatch();
@@ -77,7 +76,7 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    private function _defineConstant($name, $value)
+    private function defineConstant($name, $value)
     {
         if (!defined($name)) {
             define($name, $value);
@@ -86,5 +85,3 @@ class AdministrationTest extends PHPUnit_Framework_TestCase
         }
     }
 }
-
-?>

@@ -13,6 +13,11 @@
  * @link      http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
 
+namespace Imgzoom;
+
+use PHPUnit\Framework\TestCase;
+use PHPUnit_Extensions_MockFunction;
+
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/functions.php';
 
@@ -25,28 +30,28 @@ require_once '../../cmsimple/functions.php';
  * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
  * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
  */
-class ZoomViewTest extends PHPUnit_Framework_TestCase
+class ZoomViewTest extends TestCase
 {
     /**
      * The test subject.
      *
-     * @var Imgzoom_Controller
+     * @var Controller
      */
-    private $_subject;
+    private $subject;
 
     /**
      * The exit mock function.
      *
      * @var object
      */
-    private $_exit;
+    private $exit;
 
     /**
      * The header mock function.
      *
      * @var object
      */
-    private $_header;
+    private $header;
 
     /**
      * Sets up the test fixture.
@@ -64,13 +69,9 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
             'images' => 'bar/',
             'plugins' => ''
         );
-        $this->_subject = new Imgzoom\Controller();
-        $this->_exit = new PHPUnit_Extensions_MockFunction(
-            'XH_exit', $this->_subject
-        );
-        $this->_header = new PHPUnit_Extensions_MockFunction(
-            'header', $this->_subject
-        );
+        $this->subject = new Controller();
+        $this->exit = new PHPUnit_Extensions_MockFunction('XH_exit', $this->subject);
+        $this->header = new PHPUnit_Extensions_MockFunction('header', $this->subject);
     }
 
     /**
@@ -80,9 +81,9 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testSendsContentTypeHeader()
     {
-        $this->_header->expects($this->once())
+        $this->header->expects($this->once())
             ->with('Content-Type:text/html; charset=UTF-8');
-        $this->_dispatchResult();
+        $this->dispatchResult();
     }
 
     /**
@@ -92,8 +93,8 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      */
     public function testExitsEarly()
     {
-        $this->_exit->expects($this->once());
-        $this->_dispatchResult();
+        $this->exit->expects($this->once());
+        $this->dispatchResult();
     }
 
     /**
@@ -101,12 +102,10 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
      *
      * @return string (X)HTML
      */
-    private function _dispatchResult()
+    private function dispatchResult()
     {
         ob_start();
-        $this->_subject->dispatch();
+        $this->subject->dispatch();
         return ob_get_clean();
     }
 }
-
-?>

@@ -31,7 +31,7 @@ class Controller
      *
      * @var string
      */
-    private $_imageFolder;
+    private $imageFolder;
 
     /**
      * Initializes a new instance.
@@ -44,7 +44,7 @@ class Controller
     {
         global $pth;
 
-        $this->_imageFolder = $pth['folder']['images'];
+        $this->imageFolder = $pth['folder']['images'];
     }
 
     /**
@@ -59,7 +59,7 @@ class Controller
         } elseif (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if ($this->isAdministrationRequested()) {
-                $this->_handleAdministration();
+                $this->handleAdministration();
             }
         }
     }
@@ -73,7 +73,7 @@ class Controller
     {
         $image = stsl($_GET['imgzoom_image']);
         $image = preg_replace('/\.\.\//', '', $image);
-        echo $this->_render($image);
+        echo $this->render($image);
         XH_exit();
     }
 
@@ -102,11 +102,11 @@ class Controller
      *
      * @global array The paths of system files and folders.
      */
-    private function _render($image)
+    private function render($image)
     {
         global $pth;
 
-        $src = $this->_imageFolder . $image;
+        $src = $this->imageFolder . $image;
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
         $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.js';
         header('Content-Type:text/html; charset=UTF-8');
@@ -134,17 +134,17 @@ EOT;
      * @global string The value of the <var>action</var> parameter.
      * @global string The (X)HTML of the contents area.
      */
-    private function _handleAdministration()
+    private function handleAdministration()
     {
         global $admin, $action, $o;
 
         $o .= print_plugin_admin('off');
         switch ($admin) {
-        case '':
-            $o .= $this->_renderInfo();
-            break;
-        default:
-            $o .= plugin_admin_common($action, $admin, 'imgzoom');
+            case '':
+                $o .= $this->renderInfo();
+                break;
+            default:
+                $o .= plugin_admin_common($action, $admin, 'imgzoom');
         }
     }
 
@@ -153,11 +153,11 @@ EOT;
      *
      * @return string (X)HTML.
      */
-    private function _renderInfo()
+    private function renderInfo()
     {
         return '<h1>Imgzoom</h1>'
-            . $this->_renderIcon() . $this->_renderVersion()
-            . $this->_renderCopyright() . $this->_renderLicense();
+            . $this->renderIcon() . $this->renderVersion()
+            . $this->renderCopyright() . $this->renderLicense();
     }
 
     /**
@@ -168,7 +168,7 @@ EOT;
      * @global array The paths of system files and folders.
      * @global array The localization of the plugins.
      */
-    private function _renderIcon()
+    private function renderIcon()
     {
         global $pth, $plugin_tx;
 
@@ -184,7 +184,7 @@ EOT;
      *
      * @return string (X)HTML.
      */
-    private function _renderVersion()
+    private function renderVersion()
     {
         return '<p>Version: ' . IMGZOOM_VERSION . '</p>';
     }
@@ -194,7 +194,7 @@ EOT;
      *
      * @return (X)HTML.
      */
-    private function _renderCopyright()
+    private function renderCopyright()
     {
         return <<<EOT
 <p>Copyright &copy; 2014-2016
@@ -208,7 +208,7 @@ EOT;
      *
      * @return (X)HTML.
      */
-    private function _renderLicense()
+    private function renderLicense()
     {
         return <<<EOT
 <p class="imgzoom_license">This program is free software: you can
@@ -226,5 +226,3 @@ href="http://www.gnu.org/licenses/" target="_blank">http://www.gnu.org/licenses/
 EOT;
     }
 }
-
-?>

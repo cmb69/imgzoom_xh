@@ -23,5 +23,3 @@ define('IMGZOOM_VERSION', '@IMGZOOM_VERSION@');
  */
 $temp = new Imgzoom\Controller();
 $temp->dispatch();
-
-?>
