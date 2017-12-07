@@ -21,30 +21,15 @@
 
 namespace Imgzoom;
 
-/**
- * The controllers.
- *
- * @category CMSimple_XH
- * @package  Imgzoom
- * @author   Christoph M. Becker <cmbecker69@gmx.de>
- * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
- */
 class Controller
 {
     /**
-     * The image folder.
-     *
      * @var string
      */
     private $imageFolder;
 
     /**
-     * Initializes a new instance.
-     *
      * @return void
-     *
-     * @global array The paths of system files and folders.
      */
     public function __construct()
     {
@@ -54,8 +39,6 @@ class Controller
     }
 
     /**
-     * Dispatch according to the request.
-     *
      * @return void
      */
     public function dispatch()
@@ -71,8 +54,6 @@ class Controller
     }
 
     /**
-     * Renders an image viewer.
-     *
      * @return void
      */
     protected function renderViewer()
@@ -84,11 +65,7 @@ class Controller
     }
 
     /**
-     * Returns whether the plugin administration is requested.
-     *
      * @return bool
-     *
-     * @global Whether the plugin administration is requested.
      */
     protected function isAdministrationRequested()
     {
@@ -100,13 +77,8 @@ class Controller
     }
 
     /**
-     * Renders the page.
-     *
-     * @param string $image An image filename.
-     *
-     * @return string (X)HTML
-     *
-     * @global array The paths of system files and folders.
+     * @param string $image
+     * @return string
      */
     private function render($image)
     {
@@ -132,13 +104,7 @@ EOT;
     }
 
     /**
-     * Handles the plugin administration.
-     *
      * @return void
-     *
-     * @global string The value of the <var>admin</var> parameter.
-     * @global string The value of the <var>action</var> parameter.
-     * @global string The (X)HTML of the contents area.
      */
     private function handleAdministration()
     {
@@ -155,9 +121,7 @@ EOT;
     }
 
     /**
-     * Renders the plugin info.
-     *
-     * @return string (X)HTML.
+     * @return string
      */
     private function renderInfo()
     {
@@ -167,12 +131,7 @@ EOT;
     }
 
     /**
-     * Renders the plugin icon.
-     *
-     * @return string (X)HTML.
-     *
-     * @global array The paths of system files and folders.
-     * @global array The localization of the plugins.
+     * @return string
      */
     private function renderIcon()
     {
@@ -186,9 +145,7 @@ EOT;
     }
 
     /**
-     * Renders the plugin version.
-     *
-     * @return string (X)HTML.
+     * @return string
      */
     private function renderVersion()
     {
@@ -196,9 +153,7 @@ EOT;
     }
 
     /**
-     * Renders the copyright info.
-     *
-     * @return (X)HTML.
+     * @return
      */
     private function renderCopyright()
     {
@@ -210,9 +165,7 @@ EOT;
     }
 
     /**
-     * Renders the license info.
-     *
-     * @return (X)HTML.
+     * @return
      */
     private function renderLicense()
     {

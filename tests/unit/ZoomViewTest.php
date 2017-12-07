@@ -27,44 +27,25 @@ use PHPUnit_Extensions_MockFunction;
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/functions.php';
 
-/**
- * Testing the feed view.
- *
- * @category Testing
- * @package  Imgzoom
- * @author   Christoph M. Becker <cmbecker69@gmx.de>
- * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
- */
 class ZoomViewTest extends TestCase
 {
     /**
-     * The test subject.
-     *
      * @var Controller
      */
     private $subject;
 
     /**
-     * The exit mock function.
-     *
      * @var object
      */
     private $exit;
 
     /**
-     * The header mock function.
-     *
      * @var object
      */
     private $header;
 
     /**
-     * Sets up the test fixture.
-     *
      * @return void
-     *
-     * @global array The paths of system files and folders.
      */
     public function setUp()
     {
@@ -81,8 +62,6 @@ class ZoomViewTest extends TestCase
     }
 
     /**
-     * Tests that the appropriate Content-Type header is sent.
-     *
      * @return void
      */
     public function testSendsContentTypeHeader()
@@ -93,8 +72,6 @@ class ZoomViewTest extends TestCase
     }
 
     /**
-     * Tests that the view exists CMSimple_XH early.
-     *
      * @return void
      */
     public function testExitsEarly()
@@ -104,9 +81,7 @@ class ZoomViewTest extends TestCase
     }
 
     /**
-     * Calls dispatch and returns its output.
-     *
-     * @return string (X)HTML
+     * @return string
      */
     private function dispatchResult()
     {

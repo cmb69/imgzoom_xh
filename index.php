@@ -19,13 +19,7 @@
  * along with Imgzoom_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * The plugin version.
- */
 define('IMGZOOM_VERSION', '@IMGZOOM_VERSION@');
 
-/**
- * The plugin controller.
- */
 $temp = new Imgzoom\Controller();
 $temp->dispatch();

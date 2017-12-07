@@ -27,20 +27,9 @@ use PHPUnit_Extensions_MockFunction;
 require_once './vendor/autoload.php';
 require_once '../../cmsimple/adminfuncs.php';
 
-/**
- * Testing the general plugin administration.
- *
- * @category Testing
- * @package  Imgzoom
- * @author   Christoph M. Becker <cmbecker69@gmx.de>
- * @license  http://www.gnu.org/licenses/gpl-3.0.en.html GNU GPLv3
- * @link     http://3-magi.net/?CMSimple_XH/Imgzoom_XH
- */
 class AdministrationTest extends TestCase
 {
     /**
-     * Sets up the test fixture.
-     *
      * @return void
      */
     public function setUp()
@@ -49,13 +38,7 @@ class AdministrationTest extends TestCase
     }
 
     /**
-     * Tests the stylesheet administration.
-     *
      * @return void
-     *
-     * @global string Whether the plugin administration is requested.
-     * @global string The value of the <var>admin</var> GP parameter.
-     * @global string The value of the <var>action</var> GP parameter.
      */
     public function testStylesheet()
     {
@@ -75,11 +58,8 @@ class AdministrationTest extends TestCase
     }
 
     /**
-     * (Re)defines a constant.
-     *
-     * @param string $name  A name.
-     * @param string $value A value.
-     *
+     * @param string $name
+     * @param string $value
      * @return void
      */
     private function defineConstant($name, $value)
