@@ -86,102 +86,6 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests that the HTML element has a class.
-     *
-     * @return void
-     */
-    public function testHtmlHasClass()
-    {
-        @$this->assertTag(
-            array(
-                'tag' => 'html',
-                'attributes' => array('class' => 'imgzoom_view')
-            ),
-            $this->_dispatchResult()
-        );
-    }
-
-    /**
-     * Test that the view has a head element.
-     *
-     * @return void
-     */
-    public function testHasHead()
-    {
-        @$this->assertTag(
-            array(
-                'tag' => 'head',
-                'child' => array(
-                    'tag' => 'title',
-                    'content' => 'foo'
-                ),
-                'parent' => array('tag' => 'html')
-            ),
-            $this->_dispatchResult()
-        );
-    }
-
-    /**
-     * Tests that the HEAD links the stylesheet.
-     *
-     * @return void
-     */
-    public function testHeadLinksStylesheets()
-    {
-        @$this->assertTag(
-            array(
-                'tag' => 'link',
-                'attributes' => array(
-                    'rel' => 'stylesheet',
-                    'type' => 'text/css',
-                    'href' => 'imgzoom/css/stylesheet.css'
-                ),
-                'parent' => array('tag' => 'head')
-            ),
-            $this->_dispatchResult()
-        );
-    }
-
-    /**
-     * Tests that the body loads the script.
-     *
-     * @return void
-     */
-    public function testBodyLoadsScript()
-    {
-        @$this->assertTag(
-            array(
-                'tag' => 'script',
-                'attributes' => array(
-                    'type' => 'text/javascript',
-                    'src' => 'imgzoom/imgzoom.js'
-                ),
-                'parent' => array('tag' => 'body')
-            ),
-            $this->_dispatchResult()
-        );
-    }
-
-    /**
-     * Tests that the view has an image element.
-     *
-     * @return void
-     */
-    public function testHasImage()
-    {
-        @$this->assertTag(
-            array(
-                'tag' => 'img',
-                'attributes' => array(
-                    'src' => 'bar/foo',
-                    'alt' => 'foo'
-                )
-            ),
-            $this->_dispatchResult()
-        );
-    }
-
-    /**
      * Tests that the view exists CMSimple_XH early.
      *
      * @return void
@@ -190,33 +94,6 @@ class ZoomViewTest extends PHPUnit_Framework_TestCase
     {
         $this->_exit->expects($this->once());
         $this->_dispatchResult();
-    }
-
-    /**
-     * Tests that the user input is sanitized.
-     *
-     * @return void
-     */
-    public function testSanitizesInput()
-    {
-        $_GET['imgzoom_image'] = '../foo';
-        $this->_subject = new Imgzoom\Controller();
-        $this->_exit = new PHPUnit_Extensions_MockFunction(
-            'XH_exit', $this->_subject
-        );
-        $this->_header = new PHPUnit_Extensions_MockFunction(
-            'header', $this->_subject
-        );
-        @$this->assertTag(
-            array(
-                'tag' => 'img',
-                'attributes' => array(
-                    'src' => 'bar/foo',
-                    'alt' => 'foo'
-                )
-            ),
-            $this->_dispatchResult()
-        );
     }
 
     /**
