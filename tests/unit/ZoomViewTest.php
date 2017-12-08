@@ -24,9 +24,6 @@ namespace Imgzoom;
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Extensions_MockFunction;
 
-require_once './vendor/autoload.php';
-require_once '../../cmsimple/functions.php';
-
 class ZoomViewTest extends TestCase
 {
     /**
