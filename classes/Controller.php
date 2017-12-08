@@ -96,28 +96,12 @@ class Controller
         $o .= print_plugin_admin('off');
         switch ($admin) {
             case '':
-                $o .= $this->renderInfo();
+                ob_start();
+                (new InfoController)->defaultAction();
+                $o .= ob_get_clean();
                 break;
             default:
                 $o .= plugin_admin_common($action, $admin, 'imgzoom');
         }
-    }
-
-    /**
-     * @return string
-     */
-    private function renderInfo()
-    {
-        global $pth;
-
-        ob_start();
-        (new View('imgzoom'))
-            ->template('info')
-            ->data([
-                'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
-                'version' => IMGZOOM_VERSION
-            ])
-            ->render();
-        return ob_get_clean();
     }
 }
