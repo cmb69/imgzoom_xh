@@ -23,39 +23,33 @@ namespace Imgzoom;
 
 use Pfw\View\View;
 
-class Controller
+class MainController
 {
     /**
      * @return void
      */
-    public function dispatch()
+    public function defaultAction()
     {
-        if (isset($_GET['imgzoom_image'])) {
-            (new MainController)->defaultAction();
-        } elseif (defined('XH_ADM') && XH_ADM) {
-            XH_registerStandardPluginMenuItems(false);
-            if (XH_wantsPluginAdministration('imgzoom')) {
-                $this->handleAdministration();
-            }
-        }
+        $image = $_GET['imgzoom_image'];
+        $image = preg_replace('/\.\.\//', '', $image);
+        header('Content-Type:text/html; charset=UTF-8');
+        $this->prepareView($image)->render();
+        XH_exit();
     }
 
     /**
-     * @return void
+     * @param string $image
+     * @return View
      */
-    private function handleAdministration()
+    private function prepareView($image)
     {
-        global $admin, $action, $o;
+        global $pth;
 
-        $o .= print_plugin_admin('off');
-        switch ($admin) {
-            case '':
-                ob_start();
-                (new InfoController)->defaultAction();
-                $o .= ob_get_clean();
-                break;
-            default:
-                $o .= plugin_admin_common($action, $admin, 'imgzoom');
-        }
+        $src = $pth['folder']['images'] . $image;
+        $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
+        $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.js';
+        return View::create('imgzoom')
+            ->template('viewer')
+            ->data(compact('image', 'src', 'css', 'js'));
     }
 }

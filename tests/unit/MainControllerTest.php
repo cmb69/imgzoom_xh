@@ -26,10 +26,10 @@ use PHPUnit_Extensions_MockFunction;
 use PHPUnit_Extensions_MockStaticMethod;
 use Pfw\View\View;
 
-class ZoomViewTest extends TestCase
+class MainControllerTest extends TestCase
 {
     /**
-     * @var Controller
+     * @var MainController
      */
     private $subject;
 
@@ -55,7 +55,7 @@ class ZoomViewTest extends TestCase
             'images' => 'bar/',
             'plugins' => ''
         );
-        $this->subject = new Controller();
+        $this->subject = new MainController();
         $this->exit = new PHPUnit_Extensions_MockFunction('XH_exit', $this->subject);
         $this->header = new PHPUnit_Extensions_MockFunction('header', $this->subject);
         $m = $this->createMock(View::class);
@@ -71,7 +71,7 @@ class ZoomViewTest extends TestCase
     {
         $this->header->expects($this->once())
             ->with('Content-Type:text/html; charset=UTF-8');
-        $this->dispatchResult();
+        $this->subject->defaultAction();
     }
 
     /**
@@ -80,16 +80,6 @@ class ZoomViewTest extends TestCase
     public function testExitsEarly()
     {
         $this->exit->expects($this->once());
-        $this->dispatchResult();
-    }
-
-    /**
-     * @return string
-     */
-    private function dispatchResult()
-    {
-        ob_start();
-        $this->subject->dispatch();
-        return ob_get_clean();
+        $this->subject->defaultAction();
     }
 }
