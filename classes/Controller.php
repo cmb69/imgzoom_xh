@@ -60,7 +60,7 @@ class Controller
      */
     protected function renderViewer()
     {
-        $image = stsl($_GET['imgzoom_image']);
+        $image = $_GET['imgzoom_image'];
         $image = preg_replace('/\.\.\//', '', $image);
         echo $this->render($image);
         XH_exit();
