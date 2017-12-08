@@ -21,6 +21,7 @@
 
 namespace Imgzoom;
 
+use Pfw\SystemCheckService;
 use Pfw\View\View;
 
 class InfoController
@@ -36,7 +37,14 @@ class InfoController
             ->template('info')
             ->data([
                 'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
-                'version' => Plugin::VERSION
+                'version' => Plugin::VERSION,
+                'checks' => (new SystemCheckService)
+                    ->minPhpVersion('5.4.0')
+                    ->minXhVersion('1.6.3')
+                    ->plugin('pfw')
+                    ->writable("{$pth['folder']['plugins']}imgzoom/css/")
+                    ->writable("{$pth['folder']['plugins']}imgzoom/languages/")
+                    ->getChecks()
             ])
             ->render();
     }
