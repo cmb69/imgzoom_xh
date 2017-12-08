@@ -25,7 +25,7 @@ use Pfw\View\View;
 
 class Plugin
 {
-    const VERSION = '@IMGZOOM_VERSION@';
+    const VERSION = '@PLUGIN_VERSION@';
 
     /**
      * @return void
