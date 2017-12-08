@@ -23,6 +23,8 @@ namespace Imgzoom;
 
 use PHPUnit\Framework\TestCase;
 use PHPUnit_Extensions_MockFunction;
+use PHPUnit_Extensions_MockStaticMethod;
+use Pfw\View\View;
 
 class ZoomViewTest extends TestCase
 {
@@ -56,6 +58,10 @@ class ZoomViewTest extends TestCase
         $this->subject = new Controller();
         $this->exit = new PHPUnit_Extensions_MockFunction('XH_exit', $this->subject);
         $this->header = new PHPUnit_Extensions_MockFunction('header', $this->subject);
+        $m = $this->createMock(View::class);
+        $m->expects($this->any())->method($this->anything())->will($this->returnSelf());
+        $mock = (new PHPUnit_Extensions_MockStaticMethod('Pfw\View\View::create', $this->subject));
+        $mock->expects($this->any())->willReturn($m);
     }
 
     /**

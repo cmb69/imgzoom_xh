@@ -21,6 +21,8 @@
 
 namespace Imgzoom;
 
+use Pfw\View\View;
+
 class Controller
 {
     /**
@@ -76,19 +78,12 @@ class Controller
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
         $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.js';
         header('Content-Type:text/html; charset=UTF-8');
-        return <<<EOT
-<!DOCTYPE html>
-<html class="imgzoom_view">
-    <head>
-        <title>$image</title>
-        <link rel="stylesheet" type="text/css" href="$css">
-    </head>
-    <body>
-        <img src="$src" alt="$image">
-        <script type="text/javascript" src="$js"></script>
-    </body>
-</html>
-EOT;
+        ob_start();
+        View::create('imgzoom')
+            ->template('viewer')
+            ->data(compact('image', 'src', 'css', 'js'))
+            ->render();
+        return ob_get_clean();
     }
 
     /**
@@ -113,63 +108,16 @@ EOT;
      */
     private function renderInfo()
     {
-        return '<h1>Imgzoom</h1>'
-            . $this->renderIcon() . $this->renderVersion()
-            . $this->renderCopyright() . $this->renderLicense();
-    }
+        global $pth;
 
-    /**
-     * @return string
-     */
-    private function renderIcon()
-    {
-        global $pth, $plugin_tx;
-
-        return tag(
-            'img class="imgzoom_icon" src="' . $pth['folder']['plugins']
-            . 'imgzoom/imgzoom.png" alt="' . $plugin_tx['imgzoom']['alt_icon']
-            . '"'
-        );
-    }
-
-    /**
-     * @return string
-     */
-    private function renderVersion()
-    {
-        return '<p>Version: ' . IMGZOOM_VERSION . '</p>';
-    }
-
-    /**
-     * @return
-     */
-    private function renderCopyright()
-    {
-        return <<<EOT
-<p>Copyright &copy; 2014-2017
-    <a href="http://3-magi.net/" target="_blank">Christoph M. Becker</a>
-</p>
-EOT;
-    }
-
-    /**
-     * @return
-     */
-    private function renderLicense()
-    {
-        return <<<EOT
-<p class="imgzoom_license">This program is free software: you can
-redistribute it and/or modify it under the terms of the GNU General Public
-License as published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.</p>
-<p class="imgzoom_license">This program is distributed in the hope that it
-will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHAN&shy;TABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
-Public License for more details.</p>
-<p class="imgzoom_license">You should have received a copy of the GNU
-General Public License along with this program. If not, see <a
-href="http://www.gnu.org/licenses/" target="_blank">http://www.gnu.org/licenses/</a>.
-</p>
-EOT;
+        ob_start();
+        (new View('imgzoom'))
+            ->template('info')
+            ->data([
+                'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
+                'version' => IMGZOOM_VERSION
+            ])
+            ->render();
+        return ob_get_clean();
     }
 }
