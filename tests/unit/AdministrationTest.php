@@ -21,8 +21,7 @@
 
 namespace Imgzoom;
 
-use PHPUnit\Framework\TestCase;
-use PHPUnit_Extensions_MockFunction;
+use Pfw\TestCase;
 
 class AdministrationTest extends TestCase
 {
@@ -31,7 +30,7 @@ class AdministrationTest extends TestCase
      */
     public function setUp()
     {
-        new PHPUnit_Extensions_MockFunction('XH_registerStandardPluginMenuItems', null);
+        $this->mockFunction('XH_registerStandardPluginMenuItems', null);
     }
 
     /**
@@ -41,31 +40,17 @@ class AdministrationTest extends TestCase
     {
         global $admin, $action;
 
-        $this->defineConstant('XH_ADM', true);
+        $this->setConstant('XH_ADM', true);
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
         $subject = new Controller();
-        $printPluginAdmin = new PHPUnit_Extensions_MockFunction('print_plugin_admin', $subject);
+        $printPluginAdmin = $this->mockFunction('print_plugin_admin', $subject);
         $printPluginAdmin->expects($this->once())->with('off');
-        $pluginAdminCommon = new PHPUnit_Extensions_MockFunction('plugin_admin_common', $subject);
+        $pluginAdminCommon = $this->mockFunction('plugin_admin_common', $subject);
         $pluginAdminCommon->expects($this->once())
             ->with($action, $admin, 'imgzoom');
-        $wpamock = new PHPUnit_Extensions_MockFunction('XH_wantsPluginAdministration', $subject);
+        $wpamock = $this->mockFunction('XH_wantsPluginAdministration', $subject);
         $wpamock->expects($this->any())->willReturn(true);
         $subject->dispatch();
-    }
-
-    /**
-     * @param string $name
-     * @param string $value
-     * @return void
-     */
-    private function defineConstant($name, $value)
-    {
-        if (!defined($name)) {
-            define($name, $value);
-        } else {
-            runkit_constant_redefine($name, $value);
-        }
     }
 }
