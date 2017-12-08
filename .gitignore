@@ -1,6 +1,2 @@
-*.komodoproject
-.komodotools
-doc
 tests/coverage
-vendor
 /imgzoom.min.js
