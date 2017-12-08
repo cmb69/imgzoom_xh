@@ -42,10 +42,9 @@ class AdministrationTest extends TestCase
      */
     public function testStylesheet()
     {
-        global $imgzoom, $admin, $action;
+        global $admin, $action;
 
         $this->defineConstant('XH_ADM', true);
-        $imgzoom = 'true';
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
         $subject = new Controller();
@@ -54,6 +53,8 @@ class AdministrationTest extends TestCase
         $pluginAdminCommon = new PHPUnit_Extensions_MockFunction('plugin_admin_common', $subject);
         $pluginAdminCommon->expects($this->once())
             ->with($action, $admin, 'imgzoom');
+        $wpamock = new PHPUnit_Extensions_MockFunction('XH_wantsPluginAdministration', $subject);
+        $wpamock->expects($this->any())->willReturn(true);
         $subject->dispatch();
     }
 
