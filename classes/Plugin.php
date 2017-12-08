@@ -23,12 +23,14 @@ namespace Imgzoom;
 
 use Pfw\View\View;
 
-class Controller
+class Plugin
 {
+    const VERSION = '@IMGZOOM_VERSION@';
+
     /**
      * @return void
      */
-    public function dispatch()
+    public function run()
     {
         if (isset($_GET['imgzoom_image'])) {
             (new MainController)->defaultAction();

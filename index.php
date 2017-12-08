@@ -19,6 +19,4 @@
  * along with Imgzoom_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define('IMGZOOM_VERSION', '@IMGZOOM_VERSION@');
-
-(new Imgzoom\Controller())->dispatch();
+(new Imgzoom\Plugin())->run();

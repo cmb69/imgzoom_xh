@@ -36,7 +36,7 @@ class InfoController
             ->template('info')
             ->data([
                 'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
-                'version' => IMGZOOM_VERSION
+                'version' => Plugin::VERSION
             ])
             ->render();
     }

@@ -43,7 +43,7 @@ class AdministrationTest extends TestCase
         $this->setConstant('XH_ADM', true);
         $admin = 'plugin_stylesheet';
         $action = 'plugin_text';
-        $subject = new Controller();
+        $subject = new Plugin();
         $printPluginAdmin = $this->mockFunction('print_plugin_admin', $subject);
         $printPluginAdmin->expects($this->once())->with('off');
         $pluginAdminCommon = $this->mockFunction('plugin_admin_common', $subject);
@@ -51,6 +51,6 @@ class AdministrationTest extends TestCase
             ->with($action, $admin, 'imgzoom');
         $wpamock = $this->mockFunction('XH_wantsPluginAdministration', $subject);
         $wpamock->expects($this->any())->willReturn(true);
-        $subject->dispatch();
+        $subject->run();
     }
 }
