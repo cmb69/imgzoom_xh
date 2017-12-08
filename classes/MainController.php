@@ -47,7 +47,10 @@ class MainController
 
         $src = $pth['folder']['images'] . $image;
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
-        $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.js';
+        $js = $pth['folder']['plugins'] . 'imgzoom/imgzoom.min.js';
+        if (!file_exists($js)) {
+            $js = "{$pth['folder']['plugins']}imgzoom/imgzoom.js";
+        }
         return View::create('imgzoom')
             ->template('viewer')
             ->data(compact('image', 'src', 'css', 'js'));
