@@ -6,7 +6,7 @@ English
 
 Imgzoom_XH is a plugin for [CMSimple_XH](http://www.cmsimple-xh.org/) which facilitates presenting very large images (for instance, newspaper scans) in simple image viewers, so that visitors can view them in full detail.
 
-[![Latest Version: 1.0beta2](https://img.shields.io/badge/Latest%20Version-1.0beta2-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1,0beta2)
+[![Latest Version: 1.0beta2](https://img.shields.io/badge/Latest%20Version-1.0beta2-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1.0beta2)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 * For general **information** and **downloads** of the latest version visit the [project page](http://3-magi.net/?CMSimple_XH/Imgzoom_XH).
