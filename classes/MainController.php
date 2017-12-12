@@ -51,7 +51,7 @@ class MainController
         if (!file_exists($js)) {
             $js = "{$pth['folder']['plugins']}imgzoom/imgzoom.js";
         }
-        return View::create('imgzoom')
+        return (new View('imgzoom'))
             ->template('viewer')
             ->data(compact('image', 'src', 'css', 'js'));
     }
