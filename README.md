@@ -6,7 +6,7 @@ English
 
 Imgzoom_XH is a plugin for [CMSimple_XH](http://www.cmsimple-xh.org/) which facilitates presenting very large images (for instance, newspaper scans) in simple image viewers, so that visitors can view them in full detail.
 
-[![Latest Version: 1.0beta2](https://img.shields.io/badge/Latest%20Version-1.0beta2-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1.0beta2)
+[![Latest Version: 1.0beta3](https://img.shields.io/badge/Latest%20Version-1.0beta3-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1.0beta3)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 * For general **information** and **downloads** of the latest version visit the [project page](http://3-magi.net/?CMSimple_XH/Imgzoom_XH).
@@ -25,7 +25,7 @@ Deutsch
 
 Imgzoom_XH ist ein Plugin für [CMSimple_XH](http://www.cmsimple-xh.org/de/), das es ermöglicht sehr große Bilder (z.B. Zeitungsscans) in einfachen Bildbetrachtern darzustellen, so dass Besucher sie in allen Details ansehen können.
 
-[![Aktuelle Version: 1.0beta2](https://img.shields.io/badge/Aktuelle%20Version-1.0beta2-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1.0beta2)
+[![Aktuelle Version: 1.0beta3](https://img.shields.io/badge/Aktuelle%20Version-1.0beta3-red.svg)](https://github.com/cmb69/imgzoom_xh/releases/tag/1.0beta3)
 [![Lizenz: GPL v3](https://img.shields.io/badge/Lizenz-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 * Für allgemeine **Information** und **Downloads** der aktuellen Version besuche die [Projektseite](http://3-magi.net/de/?CMSimple_XH/Imgzoom_XH).
