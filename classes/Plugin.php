@@ -25,7 +25,7 @@ use Pfw\View\View;
 
 class Plugin
 {
-    const VERSION = '@PLUGIN_VERSION@';
+    const VERSION = '1.0beta3';
 
     /**
      * @return void
