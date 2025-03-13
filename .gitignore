@@ -2,3 +2,5 @@ tests/coverage
 /imgzoom.min.js
 /README.htm
 /tools
+/composer.lock
+/vendor
