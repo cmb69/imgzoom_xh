@@ -21,6 +21,7 @@
 
 namespace Imgzoom;
 
+use Plib\Request;
 use Plib\Response;
 use Plib\SystemChecker;
 use Plib\View;
@@ -43,7 +44,7 @@ class InfoController
         $this->view = $view;
     }
 
-    public function defaultAction(): Response
+    public function defaultAction(Request $request): Response
     {
         return Response::create($this->view->render('info', [
             'logo' => $this->pluginFolder . "imgzoom.png",

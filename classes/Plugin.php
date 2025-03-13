@@ -21,7 +21,7 @@
 
 namespace Imgzoom;
 
-use Plib\View;
+use Plib\Request;
 
 class Plugin
 {
@@ -35,7 +35,7 @@ class Plugin
         global $pth, $plugin_tx;
 
         if (isset($_GET['imgzoom_image'])) {
-            Dic::mainController()->defaultAction()();
+            Dic::mainController()->defaultAction(Request::current())();
         } elseif (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if (XH_wantsPluginAdministration('imgzoom')) {
@@ -54,7 +54,7 @@ class Plugin
         $o .= print_plugin_admin('off');
         switch ($admin) {
             case '':
-                $o .= Dic::infoController()->defaultAction()();
+                $o .= Dic::infoController()->defaultAction(Request::current())();
                 break;
             default:
                 $o .= plugin_admin_common();
