@@ -19,4 +19,16 @@
  * along with Imgzoom_XH.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-(new Imgzoom\Plugin())->run();
+use Imgzoom\Dic;
+use Plib\Request;
+
+if (!defined("CMSIMPLE_XH_VERSION")) {
+    http_response_code(403);
+    exit;
+}
+
+const IMGZOOM_VERSION = "1.0beta3";
+
+if (isset($_GET['imgzoom_image'])) {
+    Dic::mainController()->defaultAction(Request::current())();
+}

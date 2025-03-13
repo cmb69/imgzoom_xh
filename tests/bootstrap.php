@@ -15,6 +15,6 @@ require_once '../plib/classes/FakeSystemChecker.php';
 require_once './classes/Dic.php';
 require_once './classes/InfoController.php';
 require_once './classes/MainController.php';
-require_once './classes/Plugin.php';
 
 const CMSIMPLE_XH_VERSION = "1.7.5";
+const IMGZOOM_VERSION = "1.0beta3";

@@ -48,7 +48,7 @@ class InfoController
     {
         return Response::create($this->view->render('info', [
             'logo' => $this->pluginFolder . "imgzoom.png",
-            'version' => Plugin::VERSION,
+            'version' => IMGZOOM_VERSION,
             'checks' => [
                 $this->checkPhpVersion('7.1.0'),
                 $this->checkXhVersion('1.7.0'),
