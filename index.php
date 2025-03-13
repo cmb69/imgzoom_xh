@@ -29,6 +29,4 @@ if (!defined("CMSIMPLE_XH_VERSION")) {
 
 const IMGZOOM_VERSION = "1.0beta3";
 
-if (isset($_GET['imgzoom_image'])) {
-    Dic::mainController()->defaultAction(Request::current())();
-}
+Dic::mainController()->defaultAction(Request::current())();

@@ -46,7 +46,9 @@ class MainController
     public function defaultAction(Request $request): Response
     {
         $image = $request->get('imgzoom_image');
-        assert($image !== null);
+        if ($image === null) {
+            return Response::create();
+        }
         $image = (string) preg_replace('/\.\.\//', '', $image);
         return Response::create($this->prepareView($image))
             ->withContentType("text/html; charset=UTF-8");
