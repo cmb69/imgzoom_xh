@@ -45,7 +45,7 @@ class Plugin
      */
     private function handleAdministration()
     {
-        global $admin, $action, $o;
+        global $admin, $o;
 
         $o .= print_plugin_admin('off');
         switch ($admin) {
@@ -55,7 +55,7 @@ class Plugin
                 $o .= ob_get_clean();
                 break;
             default:
-                $o .= plugin_admin_common($action, $admin, 'imgzoom');
+                $o .= plugin_admin_common();
         }
     }
 }

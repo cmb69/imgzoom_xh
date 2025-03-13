@@ -3,7 +3,7 @@ on:
   pull_request:
   push:
   schedule:
-    - cron: '08 14 * * *'
+    - cron: '56 22 * * *'
   workflow_dispatch:
 jobs:
   checks:
@@ -44,7 +44,7 @@ jobs:
         run: cd cmsimplexh/plugins/imgzoom && composer install
       - name: phing sniff
         run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing sniff
-#      - name: phing stan
-#        run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing stan
+      - name: phing stan
+        run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing stan
 #      - name: phing test
 #        run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing test
