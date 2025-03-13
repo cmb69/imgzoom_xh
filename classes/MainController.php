@@ -21,7 +21,7 @@
 
 namespace Imgzoom;
 
-use Pfw\View\View;
+use Plib\View;
 
 class MainController
 {
@@ -33,17 +33,17 @@ class MainController
         $image = $_GET['imgzoom_image'];
         $image = preg_replace('/\.\.\//', '', $image);
         header('Content-Type:text/html; charset=UTF-8');
-        $this->prepareView($image)->render();
+        echo $this->prepareView($image);
         XH_exit();
     }
 
     /**
      * @param string $image
-     * @return View
+     * @return string
      */
     private function prepareView($image)
     {
-        global $pth;
+        global $pth, $plugin_tx;
 
         $src = $pth['folder']['images'] . $image;
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
@@ -51,8 +51,7 @@ class MainController
         if (!file_exists($js)) {
             $js = "{$pth['folder']['plugins']}imgzoom/imgzoom.js";
         }
-        return (new View('imgzoom'))
-            ->template('viewer')
-            ->data(compact('image', 'src', 'css', 'js'));
+        $view = new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"]);
+        return $view->render('viewer', compact('image', 'src', 'css', 'js'));
     }
 }

@@ -22,7 +22,7 @@
 namespace Imgzoom;
 
 use Pfw\SystemCheckService;
-use Pfw\View\View;
+use Plib\View;
 
 class InfoController
 {
@@ -31,21 +31,19 @@ class InfoController
      */
     public function defaultAction()
     {
-        global $pth;
+        global $pth, $plugin_tx;
 
-        (new View('imgzoom'))
-            ->template('info')
-            ->data([
-                'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
-                'version' => Plugin::VERSION,
-                'checks' => (new SystemCheckService)
-                    ->minPhpVersion('5.4.0')
-                    ->minXhVersion('1.6.3')
-                    ->plugin('pfw')
-                    ->writable("{$pth['folder']['plugins']}imgzoom/css/")
-                    ->writable("{$pth['folder']['plugins']}imgzoom/languages/")
-                    ->getChecks()
-            ])
-            ->render();
+        $view = new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"]);
+        echo $view->render('info', [
+            'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
+            'version' => Plugin::VERSION,
+            'checks' => (new SystemCheckService)
+                ->minPhpVersion('5.4.0')
+                ->minXhVersion('1.6.3')
+                ->plugin('pfw')
+                ->writable("{$pth['folder']['plugins']}imgzoom/css/")
+                ->writable("{$pth['folder']['plugins']}imgzoom/languages/")
+                ->getChecks()
+        ]);
     }
 }

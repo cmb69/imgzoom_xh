@@ -21,8 +21,6 @@
 
 namespace Imgzoom;
 
-use Pfw\View\View;
-
 class Plugin
 {
     const VERSION = '1.0beta3';
