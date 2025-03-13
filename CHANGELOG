@@ -1,9 +1,0 @@
-Version 1.0beta3 – released 2017-12-12
-see <https://github.com/cmb69/imgzoom_xh/milestone/1?closed=1>
-
-Version 1.0beta2 -- released 2014-07-01
-* fixed vulnerability under unsupported CMSimple_XH versions, where the plugin
-  administration didn't require authentication
-
-Version 1.0beta1 -- released 2014-06-18
-* initial release
