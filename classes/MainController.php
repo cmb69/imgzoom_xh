@@ -21,6 +21,7 @@
 
 namespace Imgzoom;
 
+use Plib\Response;
 use Plib\View;
 
 class MainController
@@ -41,16 +42,12 @@ class MainController
         $this->view = $view;
     }
 
-    /**
-     * @return void
-     */
-    public function defaultAction()
+    public function defaultAction(): Response
     {
         $image = $_GET['imgzoom_image'];
         $image = preg_replace('/\.\.\//', '', $image);
-        header('Content-Type:text/html; charset=UTF-8');
-        echo $this->prepareView($image);
-        XH_exit();
+        return Response::create($this->prepareView($image))
+            ->withContentType("text/html; charset=UTF-8");
     }
 
     /**

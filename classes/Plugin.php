@@ -35,7 +35,7 @@ class Plugin
         global $pth, $plugin_tx;
 
         if (isset($_GET['imgzoom_image'])) {
-            Dic::mainController()->defaultAction();
+            Dic::mainController()->defaultAction()();
         } elseif (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if (XH_wantsPluginAdministration('imgzoom')) {
@@ -54,9 +54,7 @@ class Plugin
         $o .= print_plugin_admin('off');
         switch ($admin) {
             case '':
-                ob_start();
-                Dic::infoController()->defaultAction();
-                $o .= ob_get_clean();
+                $o .= Dic::infoController()->defaultAction()();
                 break;
             default:
                 $o .= plugin_admin_common();

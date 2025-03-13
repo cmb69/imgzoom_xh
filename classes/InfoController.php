@@ -21,6 +21,7 @@
 
 namespace Imgzoom;
 
+use Plib\Response;
 use Plib\SystemChecker;
 use Plib\View;
 
@@ -42,12 +43,9 @@ class InfoController
         $this->view = $view;
     }
 
-    /**
-     * @return void
-     */
-    public function defaultAction()
+    public function defaultAction(): Response
     {
-        echo $this->view->render('info', [
+        return Response::create($this->view->render('info', [
             'logo' => $this->pluginFolder . "imgzoom.png",
             'version' => Plugin::VERSION,
             'checks' => [
@@ -57,7 +55,7 @@ class InfoController
                 $this->checkWritability($this->pluginFolder . "css/"),
                 $this->checkWritability($this->pluginFolder . "languages/"),
             ],
-        ]);
+        ]));
     }
 
     /** @return array{class:string,label:string,stateLabel:string} */
