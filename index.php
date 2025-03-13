@@ -29,4 +29,4 @@ if (!defined("CMSIMPLE_XH_VERSION")) {
 
 const IMGZOOM_VERSION = "1.0beta3";
 
-Dic::mainController()->defaultAction(Request::current())();
+Dic::mainController()(Request::current())();

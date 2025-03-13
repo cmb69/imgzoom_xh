@@ -43,7 +43,7 @@ class MainController
         $this->view = $view;
     }
 
-    public function defaultAction(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         $image = $request->get('imgzoom_image');
         if ($image === null) {

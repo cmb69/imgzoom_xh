@@ -17,7 +17,7 @@ class MainControllerTest extends TestCase
             $this->view()
         );
         $request = new FakeRequest(["url" => "http://example.com/?&imgzoom_image=foo.jpg"]);
-        $response = $sut->defaultAction($request);
+        $response = $sut($request);
         $this->assertSame("text/html; charset=UTF-8", $response->contentType());
         Approvals::verifyHtml($response->output());
     }
@@ -29,7 +29,7 @@ class MainControllerTest extends TestCase
             "../../userfiles/images/",
             $this->view()
         );
-        $this->assertSame("", $sut->defaultAction(new FakeRequest())->output());
+        $this->assertSame("", $sut(new FakeRequest())->output());
     }
 
     private function view(): View

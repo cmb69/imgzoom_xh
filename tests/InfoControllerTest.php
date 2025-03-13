@@ -17,6 +17,6 @@ class InfoControllerTest extends TestCase
             new FakeSystemChecker(),
             new View("./views/", XH_includeVar("./languages/en.php", "plugin_tx")["imgzoom"])
         );
-        Approvals::verifyHtml($sut->defaultAction(new FakeRequest())->output());
+        Approvals::verifyHtml($sut(new FakeRequest())->output());
     }
 }

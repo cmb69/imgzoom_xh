@@ -44,7 +44,7 @@ class InfoController
         $this->view = $view;
     }
 
-    public function defaultAction(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         return Response::create($this->view->render('info', [
             'logo' => $this->pluginFolder . "imgzoom.png",

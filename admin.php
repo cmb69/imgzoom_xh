@@ -37,7 +37,7 @@ if (XH_wantsPluginAdministration('imgzoom')) {
     $o .= print_plugin_admin('off');
     switch ($admin) {
         case '':
-            $o .= Dic::infoController()->defaultAction(Request::current())();
+            $o .= Dic::infoController()(Request::current())();
             break;
         default:
             $o .= plugin_admin_common();
