@@ -60,12 +60,15 @@ class MainController
      */
     private function prepareView($image)
     {
-        $src = $this->imageFolder . $image;
-        $css = "{$this->pluginFolder}css/stylesheet.css";
-        $js = "{$this->pluginFolder}imgzoom.min.js";
+        $js = $this->pluginFolder . "imgzoom.min.js";
         if (!file_exists($js)) {
-            $js = "{$this->pluginFolder}imgzoom.js";
+            $js = $this->pluginFolder . "imgzoom.js";
         }
-        return $this->view->render('viewer', compact('image', 'src', 'css', 'js'));
+        return $this->view->render('viewer', [
+            'image' => $image,
+            'src' => $this->imageFolder . $image,
+            'css' => $this->pluginFolder . "css/stylesheet.css",
+            'js' => $js,
+        ]);
     }
 }
