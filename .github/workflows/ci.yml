@@ -46,5 +46,5 @@ jobs:
         run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing sniff
       - name: phing stan
         run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing stan
-#      - name: phing test
-#        run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing test
+      - name: phing test
+        run: cd cmsimplexh/plugins/imgzoom && PATH=tools:vendor/bin:$PATH phing test

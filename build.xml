@@ -9,10 +9,6 @@
     <echo>${help}</echo>
   </target>
 
-  <target name="stan" description="runs static analyzer">
-    <exec executable="phpstan" passthru="true" checkreturn="true"/>
-  </target>
-
   <target name="sniff" description="checks adherence to the coding standards">
     <exec executable="phpcs" passthru="true" checkreturn="true">
       <arg value="--standard=PSR2"/>
@@ -20,6 +16,22 @@
       <arg file="classes"/>
       <arg file="admin.php"/>
       <arg file="index.php"/>
+    </exec>
+  </target>
+
+  <target name="stan" description="runs static analyzer">
+    <exec executable="phpstan" passthru="true" checkreturn="true"/>
+  </target>
+
+  <target name="test" description="runs all developer tests">
+    <exec executable="phpunit" passthru="true" checkreturn="true"/>
+  </target>
+
+  <target name="check" description="runs all checks" depends="sniff,stan,test"/>
+
+  <target name="coverage" description="generates coverage report">
+    <exec executable="phpunit" passthru="true" checkreturn="true">
+      <arg line="--coverage-html coverage"/>
     </exec>
   </target>
 

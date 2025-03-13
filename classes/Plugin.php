@@ -53,16 +53,13 @@ class Plugin
      */
     private function handleAdministration()
     {
-        global $pth, $plugin_tx, $admin, $o;
+        global $admin, $o;
 
         $o .= print_plugin_admin('off');
         switch ($admin) {
             case '':
                 ob_start();
-                $controller = new InfoController(
-                    new SystemChecker(),
-                    new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"])
-                );
+                $controller = Dic::infoController();
                 $controller->defaultAction();
                 $o .= ob_get_clean();
                 break;
