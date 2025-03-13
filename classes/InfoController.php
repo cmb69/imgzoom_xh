@@ -32,12 +32,10 @@ class InfoController
     /** @var View */
     private $view;
 
-    public function __construct()
+    public function __construct(SystemChecker $systemChecker, View $view)
     {
-        global $pth, $plugin_tx;
-
-        $this->systemChecker = new SystemChecker();
-        $this->view = new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"]);
+        $this->systemChecker = $systemChecker;
+        $this->view = $view;
     }
 
     /**

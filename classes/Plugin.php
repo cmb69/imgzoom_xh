@@ -21,6 +21,9 @@
 
 namespace Imgzoom;
 
+use Plib\SystemChecker;
+use Plib\View;
+
 class Plugin
 {
     const VERSION = '1.0beta3';
@@ -30,8 +33,13 @@ class Plugin
      */
     public function run()
     {
+        global $pth, $plugin_tx;
+
         if (isset($_GET['imgzoom_image'])) {
-            (new MainController)->defaultAction();
+            $controller = new MainController(
+                new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"])
+            );
+            $controller->defaultAction();
         } elseif (defined('XH_ADM') && XH_ADM) {
             XH_registerStandardPluginMenuItems(false);
             if (XH_wantsPluginAdministration('imgzoom')) {
@@ -45,13 +53,17 @@ class Plugin
      */
     private function handleAdministration()
     {
-        global $admin, $o;
+        global $pth, $plugin_tx, $admin, $o;
 
         $o .= print_plugin_admin('off');
         switch ($admin) {
             case '':
                 ob_start();
-                (new InfoController)->defaultAction();
+                $controller = new InfoController(
+                    new SystemChecker(),
+                    new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"])
+                );
+                $controller->defaultAction();
                 $o .= ob_get_clean();
                 break;
             default:

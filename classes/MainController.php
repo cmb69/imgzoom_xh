@@ -25,6 +25,14 @@ use Plib\View;
 
 class MainController
 {
+    /** @var View */
+    private $view;
+
+    public function __construct(View $view)
+    {
+        $this->view = $view;
+    }
+
     /**
      * @return void
      */
@@ -43,7 +51,7 @@ class MainController
      */
     private function prepareView($image)
     {
-        global $pth, $plugin_tx;
+        global $pth;
 
         $src = $pth['folder']['images'] . $image;
         $css = $pth['folder']['plugins'] . 'imgzoom/css/stylesheet.css';
@@ -51,7 +59,6 @@ class MainController
         if (!file_exists($js)) {
             $js = "{$pth['folder']['plugins']}imgzoom/imgzoom.js";
         }
-        $view = new View("{$pth["folder"]["plugins"]}imgzoom/views/", $plugin_tx["imgzoom"]);
-        return $view->render('viewer', compact('image', 'src', 'css', 'js'));
+        return $this->view->render('viewer', compact('image', 'src', 'css', 'js'));
     }
 }
