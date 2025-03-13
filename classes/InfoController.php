@@ -52,7 +52,7 @@ class InfoController
             'version' => Plugin::VERSION,
             'checks' => [
                 $this->checkPhpVersion('5.4.0'),
-                $this->checkXhVersion('1.6.3'),
+                $this->checkXhVersion('1.7.0'),
                 $this->checkPlib(),
                 $this->checkWritability("{$pth['folder']['plugins']}imgzoom/css/"),
                 $this->checkWritability("{$pth['folder']['plugins']}imgzoom/languages/"),
