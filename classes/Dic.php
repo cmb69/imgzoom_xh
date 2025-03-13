@@ -28,14 +28,21 @@ class Dic
 {
     public static function mainController(): MainController
     {
+        global $pth;
+
         return new MainController(
+            $pth["folder"]["plugins"] . "imgzoom/",
+            $pth["folder"]["images"],
             self::view()
         );
     }
 
     public static function infoController(): InfoController
     {
+        global $pth;
+
         return new InfoController(
+            $pth["folder"]["plugins"] . "imgzoom/",
             new SystemChecker(),
             self::view()
         );

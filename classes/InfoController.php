@@ -26,14 +26,18 @@ use Plib\View;
 
 class InfoController
 {
+    /** @var string */
+    private $pluginFolder;
+
     /** @var SystemChecker */
     private $systemChecker;
 
     /** @var View */
     private $view;
 
-    public function __construct(SystemChecker $systemChecker, View $view)
+    public function __construct(string $pluginFolder, SystemChecker $systemChecker, View $view)
     {
+        $this->pluginFolder = $pluginFolder;
         $this->systemChecker = $systemChecker;
         $this->view = $view;
     }
@@ -43,17 +47,15 @@ class InfoController
      */
     public function defaultAction()
     {
-        global $pth;
-
         echo $this->view->render('info', [
-            'logo' => "{$pth['folder']['plugins']}imgzoom/imgzoom.png",
+            'logo' => $this->pluginFolder . "imgzoom.png",
             'version' => Plugin::VERSION,
             'checks' => [
                 $this->checkPhpVersion('7.1.0'),
                 $this->checkXhVersion('1.7.0'),
                 $this->checkPlib(),
-                $this->checkWritability("{$pth['folder']['plugins']}imgzoom/css/"),
-                $this->checkWritability("{$pth['folder']['plugins']}imgzoom/languages/"),
+                $this->checkWritability($this->pluginFolder . "css/"),
+                $this->checkWritability($this->pluginFolder . "languages/"),
             ],
         ]);
     }
