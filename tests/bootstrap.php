@@ -17,4 +17,4 @@ require_once './classes/InfoController.php';
 require_once './classes/MainController.php';
 
 const CMSIMPLE_XH_VERSION = "1.7.5";
-const IMGZOOM_VERSION = "1.0beta3";
+const IMGZOOM_VERSION = "1.0";

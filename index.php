@@ -27,6 +27,6 @@ if (!defined("CMSIMPLE_XH_VERSION")) {
     exit;
 }
 
-const IMGZOOM_VERSION = "1.0beta3";
+const IMGZOOM_VERSION = "1.0";
 
 Dic::mainController()(Request::current())();

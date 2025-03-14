@@ -84,7 +84,7 @@
     <delete dir="export"/>
     <!-- <copy file="dist/config/config.php" tofile="dist/config/defaultconfig.php"/> -->
     <copy file="dist/languages/en.php" tofile="dist/languages/default.php"/>
-    <zip destfile="Imgzoom_XH-1.0beta3.zip" basedir="dist" prefix="imgzoom/"/>
+    <zip destfile="Imgzoom_XH-1.0.zip" basedir="dist" prefix="imgzoom/"/>
     <delete dir="dist"/>
   </target>
 
