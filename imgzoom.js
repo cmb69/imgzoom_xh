@@ -20,15 +20,7 @@
 (function () {
     "use strict";
 
-    var on = function (element, event, listener) {
-        if (element.addEventListener) {
-            element.addEventListener(event, listener);
-        } else if (element.attachEvent) {
-            element.attachEvent("on" + event, listener);
-        }
-    };
-    
-    on(window, "load", function () {
+    addEventListener("load", function () {
 
         var image, imageRatio, baseWidth, baseHeight, zoomFactor;
 
@@ -80,18 +72,18 @@
         zoomFactor = 0;
         image = document.images[0];
         imageRatio = image.offsetWidth / image.offsetHeight;
-        on(image, "click", onClick);
+        image.addEventListener("click", onClick);
         shrinkImage();
         fitImageToViewport();
-        on(window, "keydown", function (event) {
+        addEventListener("keydown", function (event) {
             if (event.shiftKey) {
                 image.className = "imgzoom_out";
             }
         });
-        on(window, "keyup", function () {
+        addEventListener("keyup", function () {
             image.className = "";
         });
-        on(window, "resize", function () {
+        addEventListener("resize", function () {
             shrinkImage();
             fitImageToViewport();
         });
