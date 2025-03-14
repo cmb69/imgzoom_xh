@@ -6,6 +6,6 @@
     </head>
     <body>
         <img src="<?=$src?>" alt="<?=$image?>">
-        <script type="text/javascript" src="<?=$js?>"></script>
+        <script type="module" src="<?=$js?>"></script>
     </body>
 </html>
