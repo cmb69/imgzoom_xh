@@ -1,11 +1,24 @@
+<?php
+
+use Plib\View;
+
+/**
+ * @var View $this
+ * @var string $css
+ * @var string $image
+ * @var string $src
+ * @var string $js
+ */
+?>
+
 <!DOCTYPE html>
 <html class="imgzoom_view">
     <head>
-        <title><?=$image?></title>
-        <link rel="stylesheet" type="text/css" href="<?=$css?>">
+        <title><?=$this->esc($image)?></title>
+        <link rel="stylesheet" type="text/css" href="<?=$this->esc($css)?>">
     </head>
     <body>
-        <img src="<?=$src?>" alt="<?=$image?>">
-        <script type="module" src="<?=$js?>"></script>
+        <img src="<?=$this->esc($src)?>" alt="<?=$this->esc($image)?>">
+        <script type="module" src="<?=$this->esc($js)?>"></script>
     </body>
 </html>
