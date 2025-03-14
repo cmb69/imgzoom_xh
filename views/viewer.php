@@ -13,12 +13,12 @@ use Plib\View;
 
 <!DOCTYPE html>
 <html class="imgzoom_view">
-    <head>
-        <title><?=$this->esc($image)?></title>
-        <link rel="stylesheet" type="text/css" href="<?=$this->esc($css)?>">
-    </head>
-    <body>
-        <img src="<?=$this->esc($src)?>" alt="<?=$this->esc($image)?>">
-        <script type="module" src="<?=$this->esc($js)?>"></script>
-    </body>
+  <head>
+    <title><?=$this->esc($image)?></title>
+    <link rel="stylesheet" type="text/css" href="<?=$this->esc($css)?>">
+  </head>
+  <body>
+    <img src="<?=$this->esc($src)?>" alt="<?=$this->esc($image)?>">
+    <script type="module" src="<?=$this->esc($js)?>"></script>
+  </body>
 </html>
