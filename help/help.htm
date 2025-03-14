@@ -1,207 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>Imgzoom_XH – User Manual</title>
-<link rel="stylesheet" type="text/css" href="../../pfw/help/stylesheet.css">
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Imgzoom_XH – User Manual</title>
+  <style type="text/css">
+    body {
+        font-family: Georgia, serif;
+        line-height: 1.5;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        background: #ffffe1;
+        max-width: 32em;
+    }
+    p {
+        text-align: justify;
+    }
+    pre {
+        color: black;
+        background: #ffe;
+        overflow: auto;
+        padding: 0.2em 0.5em;
+        border: 1px solid silver;
+    }
+  </style>
 </head>
-
 <body>
-
-<article>
-<h1>Imgzoom_XH – User Manual</h1>
-<img src="../imgzoom.png" class="logo" alt="Viewing image with a magnifier">
-<p>
-    Imgzoom_XH facilitates presenting very large images (for instance, newspaper
-    scans) in simple image viewers, so that visitors can view them in full
-    detail.
-</p>
-
-<nav id="nav">
-<h2>Table of Contents</h2>
+<h1 id="imgzoom_xh">Imgzoom_XH</h1>
+<p>Imgzoom_XH facilitates presenting very large images (for instance, newspaper scans) in simple image viewers, so that visitors can view them in full detail.</p>
 <ul>
-<li><a href="#notice">Important Notice</a></li>
 <li><a href="#requirements">Requirements</a></li>
+<li><a href="#download">Download</a></li>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#settings">Settings</a></li>
 <li><a href="#usage">Usage</a>
 <ul>
-<li><a href="#usage-viewer">The viewer</a></li>
-</ul>
-</li>
-<!--<li><a href="#limitations">Limitations</a></li>-->
+<li><a href="#the-viewer">The viewer</a></li>
+</ul></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#credits">Credits</a></li>
 </ul>
-</nav>
-
-<section id="notice">
-<h2>Important Notice</h2>
-<p class="important">
-    Imgzoom_XH couldn't be tested so far in various environments. It is a so
-    called beta version. Use with caution!
-</p>
-</section>
-
-<section id="requirements">
-<h2>Requirements</h2>
-<p>
-    Imgzoom_XH requires CMSimple_XH ≥ 1.7.3 with <a
-    href="http://3-magi.net/?CMSimple_XH/Pfw_XH">Pfw_XH</a> ≥ 0.2.0 and PHP ≥
-    7.1.0.
-</p>
-</section>
-
-<section id="installation">
-<h2>Installation</h2>
-<p>
-    The installation is done as with many other CMSimple_XH plugins. See the <a
-    href="http://www.cmsimple-xh.org/wiki/doku.php/installation">
-    CMSimple_XH wiki</a> for further details.
-</p>
-<ol>
-<li class="important">
-    Backup the data on your server.
-</li>
-<li>
-    Unzip the distribution on your computer.
-</li>
-<li>
-    Upload the whole directory <code>imgzoom/</code> to your server into the
-    <code>plugins/</code> directory of CMSimple_XH.
-</li>
-<li>
-    Set write permissions for the subdirectories <code>css/</code> and
-    <code>languages/</code>.
-</li>
-<li class="important">
-    Navigate to the plugin administration (<i>Plugins</i> → <i>Imgzoom</i>),
-    and check if all requirements are fulfilled.
-</li>
+<h2 id="requirements">Requirements</h2>
+<p>Imgzoom_XH is a plugin for <a href="https://www.cmsimple-xh.org/">CMSimple_XH</a>. It requires PHP ≥ 7.1.0 and CMSimple_XH ≥ 1.7.0. Imgzoom_XH also requires the <a href="https://github.com/cmb69/plib_xh">Plib_XH</a> plugin; if that is not already installed (see <em>Settings</em>→<em>Info</em>), get the <a href="https://github.com/cmb69/plib_xh/releases/latest">lastest release</a>, and install it.</p>
+<h2 id="download">Download</h2>
+<p>The <a href="https://github.com/cmb69/imgzoom_xh/releases/latest">lastest release</a> is available for download on Github.</p>
+<h1 id="installation">Installation</h1>
+<p>The installation is done as with many other CMSimple_XH plugins.</p>
+<ol type="1">
+<li>Backup the data on your server.</li>
+<li>Unzip the distribution on your computer.</li>
+<li>Upload the whole directory <code>imgzoom/</code> to your server into the <code>plugins/</code> directory of CMSimple_XH.</li>
+<li>Set write permissions for the subdirectories <code>css/</code> and <code>languages/</code>.</li>
+<li>Navigate to <code>Plugins</code> → <code>Imgzoom</code> in the back-end to check if all requirements are fulfilled.</li>
 </ol>
-</section>
-
-<section id="settings">
-<h2>Settings</h2>
-<p>
-    The plugin's configuration is done as with many other CMSimple_XH plugins in
-    the website's back-end. Go to <i>Plugins</i> → <i>Imgzoom</i>.
-</p>
-<!--
-<p>
-    You can change the default settings of Imgzoom under <i>Config</i>. Hints
-    for the options will be displayed when hovering over the help icon with your
-    mouse.
-</p>
--->
-<p>
-    Localization is done under <i>Language</i>. You can translate the character
-    strings to your own language, if there is no appropriate language file
-    available, or customize them according to your needs.
-</p>
-<p>
-    The look of Imgzoom_XH can be customized under <i>Stylesheet</i>.
-</p>
-</section>
-
-<section id="usage">
-<h2>Usage</h2>
-<p>
-    Images that shall be displayed in an Imgzoom_XH viewer have to be placed in
-    the image folder of CMSimple_XH (usually <code>userfiles/images/</code>) or
-    in a subfolder thereof.
-</p>
-<p>
-    You can either link to the image viewer from the content or the template, or
-    you can embed it in an IFrame. However, in either case you don't use the URL
-    of the image directly, but instead request the image viewer:
-</p>
-<pre>./?imgzoom_image=%IMAGE_FILENAME%</pre>
-<p>
-    An example: say you have the file <code>userfiles/images/scan.jpg</code>. To
-    create a link, use the following URL:
-</p>
-<pre>./?imgzoom_image=scan.jpg</pre>
-<p>
-    To embed an image viewer in a page write the following in HTML mode:
-</p>
-<pre>
-&lt;iframe src="./?imgzoom_image=scan.jpg" frameborder="0" width="500" height="500"&gt;&lt;/iframe&gt;
-</pre>
-<p>
-    (Adjust the width and height according to your needs.)
-</p>
-<p>
-    If the image to display is in a subfolder of the image folder, you have to
-    add the subfolder in the URL, for instance:
-</p>
-<pre>./?imgzoom_image=scans/imgage.jpg</pre>
-
-<section id="usage-viewer">
-<h3>The viewer</h3>
-<p>
-    On contemporary desktop browsers with JavaScript support the image will be
-    resized to be shown completely when the image viewer is displayed. To zoom
-    in, you have to click on the desired place; to zoom-out simply press the
-    <code>SHIFT</code> key while clicking.
-</p>
-<p>
-    On older browsers and on browsers without JavaScript support the image will
-    be displayed in its full size. You have to scroll to the desired section of
-    the image. Zooming can be done with the browser's controls for stand-alone
-    viewers.
-</p>
-<p>
-    On mobile browsers you can use the customary pan, pinch-to-zoom and double
-    tap gestures. Zooming will not generally work for embedded viewers, besides
-    zoom-in with a long press.
-</p>
-</section>
-
-</section>
-
-<!--
-<section id="limitations">
-<h2>Limitations</h2>
-</section>
--->
-
-<section id="license">
-<h2>License</h2>
-<p>
-    Imgzoom_XH is licensed under <a
-    href="http://www.gnu.org/licenses/gpl.html">GPLv3</a>.
-</p>
-<p>
-    Copyright © Christoph M. Becker
-</p>
-</section>
-
-<section id="credits">
-<h2>Credits</h2>
-<p>
-    Imgzoom_XH has been inspired by <i>Korvell</i>.
-</p>
-<p>
-    The plugin logo is designed by <a href="http://www.mentalrey.it/">Alessandro
-    Rei</a>. Many thanks for publishing this icon under GPL.
-</p>
-<p>
-    Many thanks to the community at the <a
-    href="http://www.cmsimpleforum.com/">CMSimple_XH forum</a> for tips,
-    suggestions and testing.
-</p>
-<p>
-    And last but not least many thanks to <a href="http://harteg.dk/">Peter
-    Harteg</a>, the "father" of CMSimple, and all developers of <a
-    href="http://www.cmsimple-xh.org/"> CMSimple_XH</a> without whom this
-    amazing CMS wouldn't exist.
-</p>
-</section>
-
-</article>
-
+<h2 id="settings">Settings</h2>
+<p>The configuration of the plugin is done as with many other CMSimple_XH plugins in the back-end of the Website. Go to <code>Plugins</code> → <code>Imgzoom</code>.</p>
+<p>Localization is done under <code>Language</code>. You can translate the character strings to your own language (if there is no appropriate language file available), or customize them according to your needs.</p>
+<p>The look of Imgzoom_XH can be customized under <code>Stylesheet</code>.</p>
+<h2 id="usage">Usage</h2>
+<p>Images that shall be displayed in an Imgzoom_XH viewer have to be placed in the image folder of CMSimple_XH (usually <code>userfiles/images/</code>) or in a subfolder thereof.</p>
+<p>You can either link to the image viewer from the content or the template, or you can embed it in an Iframe. However, in either case you do not use the URL of the image directly, but instead request the image viewer:</p>
+<pre><code>./?&amp;imgzoom_image=%IMAGE_FILENAME%</code></pre>
+<p>An example: say you have the file <code>userfiles/images/scan.jpg</code>. To create a link, use the following URL:</p>
+<pre><code>./?&amp;imgzoom_image=scan.jpg</code></pre>
+<p>To embed an image viewer in a page write the following in HTML mode:</p>
+<pre><code>&lt;iframe src=&quot;./?&amp;imgzoom_image=scan.jpg&quot; frameborder=&quot;0&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;&lt;/iframe&gt;</code></pre>
+<p>Adjust <code>width</code> and <code>height</code> according to your needs.</p>
+<p>If the image to display is in a subfolder of the image folder, you have to add the subfolder in the URL, for instance:</p>
+<pre><code>./?&amp;imgzoom_image=scans/image.jpg</code></pre>
+<h3 id="the-viewer">The viewer</h3>
+<p>On contemporary desktop browsers with JavaScript support the image will be resized to be shown completely when the image viewer is displayed. To zoom in, you have to click on the desired place; to zoom-out simply press the <code>SHIFT</code> key while clicking.</p>
+<p>On older browsers and on browsers without JavaScript support the image will be displayed in its full size. You have to scroll to the desired section of the image. Zooming can be done with the controls of the browser for stand-alone viewers.</p>
+<p>On mobile browsers you can use the customary pan, pinch-to-zoom and double tap gestures. Zooming will not generally work for embedded viewers, besides zoom-in with a long press.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Report bugs and ask for support either on <a href="https://github.com/cmb69/imgzoom_xh/issues">Github</a> or in the <a href="https://cmsimpleforum.com/">CMSimple_XH Forum</a>.</p>
+<h2 id="license">License</h2>
+<p>Imgzoom_XH is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+<p>Imgzoom_XH is distributed in the hope that it will be useful, but without any warranty; without even the implied warranty of merchantibility or fitness for a particular purpose. See the GNU General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License along with Imgzoom_XH. If not, see https://www.gnu.org/licenses/.</p>
+<p>Copyright © Christoph M. Becker</p>
+<h2 id="credits">Credits</h2>
+<p>Imgzoom_XH has been inspired by <em>Korvell</em>.</p>
+<p>The plugin logo is designed by <a href="http://www.mentalrey.it/">Alessandro Rei</a>. Many thanks for publishing this icon under GPL.</p>
+<p>Many thanks to the community at the <a href="https://www.cmsimpleforum.com/">CMSimple_XH forum</a> for tips, suggestions and testing.</p>
+<p>And last but not least many thanks to <a href="https://www.harteg.dk/">Peter Harteg</a>, the “father” of CMSimple, and all developers of <a href="https://www.cmsimple-xh.org/">CMSimple_XH</a> without whom this amazing CMS would not exist.</p>
 </body>
-
 </html>
